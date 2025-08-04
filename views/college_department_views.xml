@@ -1,0 +1,65 @@
+<odoo>
+    <!-- Department Tree View -->
+    <record id="view_college_department_tree" model="ir.ui.view">
+        <field name="name">college.department.tree</field>
+        <field name="model">college.department</field>
+        <field name="arch" type="xml">
+            <tree string="Departments">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="head_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Department Form View -->
+    <record id="view_college_department_form" model="ir.ui.view">
+        <field name="name">college.department.form</field>
+        <field name="model">college.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="head_id"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Department Search View -->
+    <record id="view_college_department_search" model="ir.ui.view">
+        <field name="name">college.department.search</field>
+        <field name="model">college.department</field>
+        <field name="arch" type="xml">
+            <search string="Search Departments">
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Department Action Window -->
+    <record id="action_college_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">college.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_college_department_search"/>
+    </record>
+
+    <!-- Department Menu Item -->
+    <menuitem id="menu_college_department"
+              name="Departments"
+              parent="menu_department_management"
+              action="action_college_department"/>
+
+    <!-- Top Menu -->
+    <menuitem id="menu_department_management"
+              name="Departments"
+              parent="menu_college_root"
+              sequence="40"/>
+</odoo>

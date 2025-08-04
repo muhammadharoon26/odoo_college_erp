@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Enhanced Tree View -->
+    <record id="view_college_student_tree_enhanced" model="ir.ui.view">
+        <field name="name">college.student.tree.enhanced</field>
+        <field name="model">college.student</field>
+        <field name="arch" type="xml">
+            <tree string="Students" decoration-info="state == 'studying'" 
+                decoration-success="state == 'graduated'" decoration-danger="state == 'dropped'">
+                <field name="student_id"/>
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="department_id"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="admission_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Enhanced Form View -->
+    <record id="view_college_student_form_enhanced" model="ir.ui.view">
+        <field name="name">college.student.form.enhanced</field>
+        <field name="model">college.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_send_welcome_email" icon="fa-envelope" string="Send Welcome Email" type="object"/>
+                                string="Send Welcome Email" class="oe_stat_button" icon="fa-envelope"/>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Student Name"/>
+                        </h1>
+                        <h2>
+                            <field name="student_id" placeholder="Student ID"/>
+                        </h2>
+                    </div>
+                    
+                    <group>
+                        <group string="Personal Information">
+                            <field name="gender"/>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                            <field name="address"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <group string="Academic Information">
+                            <field name="course_id"/>
+                            <field name="department_id"/>
+                            <field name="admission_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_college_student_search_enhanced" model="ir.ui.view">
+        <field name="name">college.student.search.enhanced</field>
+        <field name="model">college.student</field>
+        <field name="arch" type="xml">
+            <search string="Search Students">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="email"/>
+                <field name="course_id"/>
+                <field name="department_id"/>
+                
+                <filter string="Male" name="male" domain="[('gender','=','male')]"/>
+                <filter string="Female" name="female" domain="[('gender','=','female')]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Course" name="course" context="{'group_by':'course_id'}"/>
+                    <filter string="Department" name="department" context="{'group_by':'department_id'}"/>
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_college_student_enhanced" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">college.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_college_student_search_enhanced"/>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_college_student_enhanced" 
+              name="Students" 
+              parent="menu_college_root" 
+              action="action_college_student_enhanced"/>
+</odoo>

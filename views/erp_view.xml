@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- College ERP Menu Items -->
+        <menuitem id="menu_college_root" name="College ERP" sequence="1" web_icon="odoo_college_erp,static/description/logo1.webp"/>
+        
+        <!-- Student Management Menu -->
+        <menuitem id="menu_student_management" name="Students" parent="menu_college_root" sequence="1"/>
+        
+        <!-- Course Management Menu -->
+        <menuitem id="menu_course_management" name="Courses" parent="menu_college_root" sequence="2"/>
+        
+        <!-- Faculty Management Menu -->
+        <menuitem id="menu_faculty_management" name="Faculty" parent="menu_college_root" sequence="3"/>
+        
+        <!-- Department Management Menu -->
+        <menuitem id="menu_department_management" name="Departments" parent="menu_college_root" sequence="4"/>
+        
+        <!-- Attendance Menu -->
+        <menuitem id="menu_attendance" name="Attendance" parent="menu_college_root" sequence="5"/>
+        
+        <!-- Examination Menu -->
+        <menuitem id="menu_examination" name="Examinations" parent="menu_college_root" sequence="6"/>
+        
+        <!-- Fees Management Menu -->
+        <menuitem id="menu_fees_management" name="Fees" parent="menu_college_root" sequence="7"/>
+        
+        <!-- Library Management Menu -->
+        <menuitem id="menu_library_management" name="Library" parent="menu_college_root" sequence="8"/>
+        
+        <!-- Hostel Management Menu -->
+        <menuitem id="menu_hostel_management" name="Hostel" parent="menu_college_root" sequence="9"/>
+        
+        <!-- Transport Management Menu -->
+        <menuitem id="menu_transport_management" name="Transport" parent="menu_college_root" sequence="10"/>
+        
+        <!-- Reports Menu -->
+        <menuitem id="menu_reports" name="Reports" parent="menu_college_root" sequence="100"/>
+        
+    </data>
+</odoo>
